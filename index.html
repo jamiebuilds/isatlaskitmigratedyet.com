@@ -1,0 +1,107 @@
+<!doctype html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+    <style media="screen">
+      body {
+        max-width: 700px;
+        margin: 0 auto;
+        padding: 2em 2em 6em;
+        font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+        font-size: 1.2em;
+        line-height: 1.8;
+        -webkit-font-smoothing: antialiased;
+
+        text-align: center;
+
+      }
+
+      p, h1, h2, h3, h4, h5, h6, ul, ol, li, pre, img, aside {
+        margin-top: 1.5em;
+        margin-bottom: 0;
+      }
+
+      .container {
+        display: flex;
+        flex-direction: column;
+      }
+
+      .title {
+        order: 1;
+        font-size: 4em;
+        font-weight: 800;
+      }
+
+      progress {
+        order: 2;
+        width: 100%;
+        height: 2em;
+        -webkit-appearance: none;
+        -moz-appearance: none;
+        appearance: none;
+
+        background-color: #eee;
+        border-radius: 2px;
+        border: none;
+      }
+
+      .description {
+        order: 3;
+      }
+
+      progress[value]::-webkit-progress-bar {
+        background-color: #eee;
+        border-radius: 2px;
+      }
+
+      progress[value]::-moz-progress-bar {
+        background: #F72D73;
+        border-radius: 2px;
+      }
+
+      progress[value]::-webkit-progress-value {
+        background: #F72D73;
+        border-radius: 2px;
+      }
+
+      .progress + .title::before {
+        content: "No. 😭";
+      }
+
+      progress[value^="1"] + .title::before { content: "No. 😭"; }
+      progress[value^="2"] + .title::before { content: "No. 😰"; }
+      progress[value^="3"] + .title::before { content: "No. 😥"; }
+      progress[value^="4"] + .title::before { content: "No. 😮"; }
+      progress[value^="5"] + .title::before { content: "No. 😲"; }
+      progress[value^="6"] + .title::before { content: "No. 😵"; }
+      progress[value^="7"] + .title::before { content: "No. 😍"; }
+      progress[value^="8"] + .title::before { content: "Soon. ⏱"; }
+
+      progress[value="1"] + .title::before,
+      progress[value="2"] + .title::before,
+      progress[value="3"] + .title::before,
+      progress[value="4"] + .title::before,
+      progress[value="5"] + .title::before,
+      progress[value="6"] + .title::before,
+      progress[value="7"] + .title::before,
+      progress[value="8"] + .title::before,
+      progress[value="9"] + .title::before { content: "No. 😭"; }
+
+      progress[value="82"] + .title::before {
+        content: "Yes. 🎉";
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <progress id="progress" value="1" max="82"></progress>
+      <h1 class="title"></h1>
+      <div id="description" class="description"></div>
+    </div>
+
+    <script type="text/javascript">
+      description.innerText = progress.value + '/' + progress.max + ' packages migrated';
+    </script>
+  </body>
+</html>
